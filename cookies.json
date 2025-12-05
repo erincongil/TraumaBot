@@ -1,0 +1,16 @@
+[
+{
+    "domain": ".stackexchange.com",
+    "expirationDate": 1780519708.810246,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "acct",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "t=7COxZEvh%2fXDhgmsjm3DYxVN6Jt3vv9f%2b&s=X6Bh2%2fTXlT7v06LWUFFKQHv5A5AZFJw9",
+    "id": 13
+}
+]
