@@ -1,6 +1,7 @@
 import asyncio
 import sys
 import time
+from os import environ
 
 import zendriver as zd
 
@@ -8,8 +9,8 @@ from datetime import datetime, timedelta
 
 
 #Datos de inicio de sesión 
-EMAIL = "usertest@gmail.com"
-PASSWORD = "123456"
+EMAIL = environ.get("USER_EMAIL", "")
+PASSWORD = environ.get("USER_PASSWORD", "")
 #ID de la sala
 ROOM_ID = "30872"
 #Usamos como constante la fecha de la partida de "Trauma"
@@ -64,6 +65,8 @@ async def enviar_mensaje():
 
         textarea = await page.wait_for("#input")
         await textarea.send_keys(f"Dia {abs(dias)} sin Trauma")
+        print(f"Dia {abs(dias)} sin Trauma")
+        print("Mensaje enviado con exito!")
 
         await asyncio.sleep(1)
 
@@ -82,11 +85,11 @@ async def enviar_mensaje():
         # se liberen mientras el bucle de eventos sigue activo.
         if browser:
             print("Cerrando la sesión del navegador...")
-            try:
-                await browser.close()
+            try:                
+                await browser.stop()
                 print("Cierre de browser completado.")
             except Exception as e_close:
-                # Manejar posibles errores al cerrar, aunque el objetivo es evitar la excepción principal.
+                # Manejar posibles excepciones al cerrar el navegador.
                 print(f"Error al cerrar el navegador: {e_close}")
 
 while True:    
