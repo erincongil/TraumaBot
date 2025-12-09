@@ -77,6 +77,17 @@ async def enviar_mensaje():
         print("\nError de inicio de sesión.")
         print(e)
         return False
+    finally:
+        # 1. CIERRE EXPLÍCITO: Garantiza que el navegador se cierre y sus recursos 
+        # se liberen mientras el bucle de eventos sigue activo.
+        if browser:
+            print("Cerrando la sesión del navegador...")
+            try:
+                await browser.close()
+                print("Cierre de browser completado.")
+            except Exception as e_close:
+                # Manejar posibles errores al cerrar, aunque el objetivo es evitar la excepción principal.
+                print(f"Error al cerrar el navegador: {e_close}")
 
 while True:    
     ahora = datetime.now()
