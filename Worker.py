@@ -64,7 +64,7 @@ async def enviar_mensaje():
         await asyncio.sleep(5)
 
         textarea = await page.wait_for("#input")
-        await textarea.send_keys(f"Dia {abs(dias)} sin Trauma")
+        await textarea.send_keys(f"Dia {abs(dias)} sin Trauma - Enviado desde TraumaBot")
         print(f"Dia {abs(dias)} sin Trauma")
         print("Mensaje enviado con exito!")
 
